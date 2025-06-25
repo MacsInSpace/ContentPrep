@@ -89,7 +89,8 @@ namespace SvR.ContentPrep.Cmdlet
 
                 if (!Path.IsPathRooted(SetupFile))
                 {
-                    SetupFile = Path.Combine(SourcePath, SetupFile);
+                    /// SetupFile = Path.Combine(SourcePath, SetupFile); /// Allow full paths but get filename.
+                    SetupFile = Path.Combine(SourcePath, Path.GetFileName(SetupFile));
                 }
                 else if (!SetupFile.StartsWith(SourcePath, StringComparison.OrdinalIgnoreCase))
                 {
