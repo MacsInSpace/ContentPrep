@@ -70,6 +70,11 @@ namespace SvR.ContentPrep.Cmdlet
         {
             try
             {
+                /// Trimming unwanted spaces
+                SourcePath = SourcePath?.Trim();
+                DestinationPath = DestinationPath?.Trim();
+                SetupFile = SetupFile?.Trim();
+                
                 if (!Path.IsPathRooted(SourcePath))
                 {
                     SourcePath = Path.Combine(Environment.CurrentDirectory, SourcePath);
